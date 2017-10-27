@@ -37,11 +37,7 @@ export class UserProvider {
     let seq = this.api.post('login', accountInfo).share();
 
     seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }
+      this._loggedIn(res);
     }, err => {
       console.error('ERROR', err);
     });
