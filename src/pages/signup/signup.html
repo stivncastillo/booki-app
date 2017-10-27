@@ -6,33 +6,32 @@
 
 </ion-header>
 
-
 <ion-content>
-  <form (submit)="doSignup()">
+  <form [formGroup]="formSignup" (submit)="doSignup()">
     <ion-list>
 
       <ion-item>
-        <ion-label floating>{{ 'FIRST_NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
+        <ion-label stacked>{{ 'FIRST_NAME' | translate }}</ion-label>
+        <ion-input type="text" formControlName="first_name" name="first_name" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>{{ 'LAST_NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="user.last_name" name="last_name"></ion-input>
+        <ion-label stacked>{{ 'LAST_NAME' | translate }}</ion-label>
+        <ion-input type="text" formControlName="last_name" name="last_name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        <ion-label stacked>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" formControlName="email" name="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        <ion-label stacked>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" formControlName="password" name="password"></ion-input>
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+        <button ion-button color="primary" [disabled]="!formSignup.valid" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
       </div>
 
     </ion-list>

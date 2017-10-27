@@ -57,11 +57,7 @@ export class UserProvider {
     let seq = this.api.post('register', accountInfo).share();
 
     seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        // this._loggedIn(res);
-        console.log(res);
-      }
+      this._loggedIn(res);
     }, err => {
       console.error('ERROR', err);
     });
@@ -80,6 +76,7 @@ export class UserProvider {
    * Process a login/signup response to store user data
    */
   _loggedIn(resp) {
-    this._user = resp.user;
+    this._user = resp.data;
+    localStorage.setItem('token', resp.meta.token);
   }
 }
