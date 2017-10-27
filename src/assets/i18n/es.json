@@ -1,5 +1,7 @@
 {
   "NAME": "Nombre",
+  "FIRST_NAME": "Nombre",
+  "LAST_NAME": "Apellido",
   "PASSWORD": "Contraseña",
   "EMAIL": "Email",
   "LOGIN": "Iniciar sesión",

@@ -24,7 +24,7 @@ import { Api } from '../api/api';
  * If the `status` field is not `success`, then an error is detected and returned.
  */
 @Injectable()
-export class User {
+export class UserProvider {
   _user: any;
 
   constructor(public api: Api) { }
@@ -54,12 +54,13 @@ export class User {
    * the user entered on the form.
    */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+    let seq = this.api.post('register', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 'success') {
-        this._loggedIn(res);
+        // this._loggedIn(res);
+        console.log(res);
       }
     }, err => {
       console.error('ERROR', err);
