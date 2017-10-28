@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
-import { FirstRunPage } from '../pages/pages';
+import { FirstRunPage, MainPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 @Component({
@@ -62,6 +62,14 @@ export class MyApp {
     this.initTranslate();
   }
 
+  /*this.storage.get('token').then((condition) => {
+    if(condition){
+      this.rootPage = MainPage;
+    }else{
+      //stay on login page
+      this.rootPage = FirstRunPage;
+     }
+    });*/
   initTranslate() {
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');

@@ -46,7 +46,8 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     let loader = this.loadingCtrl.create({
-      content: this.loginLoading
+      content: this.loginLoading,
+      spinner: 'dots'
     });
     loader.present();
 
