@@ -1,4 +1,5 @@
 import 'rxjs/add/operator/toPromise';
+import { Storage } from '@ionic/storage';
 
 import { Injectable } from '@angular/core';
 
@@ -27,7 +28,9 @@ import { Api } from '../api/api';
 export class UserProvider {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(
+    public api: Api,
+    public storage: Storage) { }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -73,6 +76,7 @@ export class UserProvider {
    */
   _loggedIn(resp) {
     this._user = resp.data;
+    this.storage.set('token', resp.meta.token);
     localStorage.setItem('token', resp.meta.token);
   }
 }
