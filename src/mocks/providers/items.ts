@@ -10,6 +10,7 @@ export class Items {
     "name": "Burt Bear",
     "profilePic": "assets/img/speakers/bear.jpg",
     "about": "Burt is a Bear.",
+    "note": "la puta madre"
   };
 
 
@@ -18,7 +19,8 @@ export class Items {
       {
         "name": "Burt Bear",
         "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "about": "Burt is a Bear.",
+        "note": "90%"
       },
       {
         "name": "Charlie Cheetah",
