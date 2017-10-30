@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
-// import { Book } from '../../models/book';
+import { Book } from '../../models/book';
 import { Items, BooksProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
@@ -14,6 +14,7 @@ import { Storage } from '@ionic/storage';
 export class BookListPage {
 
   currentItems: Item[];
+  books: Book[];
 
   constructor(
     public navCtrl: NavController,
@@ -23,8 +24,8 @@ export class BookListPage {
     public storage: Storage
   ) {
     this.currentItems = this.items.query();
-    this.booksProvider.getUserBookList().subscribe((resp) => {
-      console.log(resp);
+    this.booksProvider.getUserBookList().subscribe((response) => {
+      this.books = response.data;
     }, (err) => {
       // this.storage.remove('token');
       localStorage.removeItem('token');

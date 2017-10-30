@@ -17,7 +17,6 @@ export class BooksProvider {
     let request = this.api.get('user/books').share();
 
     request.subscribe((res: any) => {
-    	console.log(res);
     }, err => {
       console.error('ERROR', err);
     });
