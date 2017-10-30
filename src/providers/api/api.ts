@@ -1,5 +1,7 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+// import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map'
 
 /**
  * Api is a generic REST Api handler. Set your API url first.

@@ -54,7 +54,7 @@ export class LoginPage {
     this.account = this.formSignin.value;
     this.userProvider.login(this.account).subscribe((resp) => {
       loader.dismiss();
-      this.navCtrl.push(MainPage);
+      this.navCtrl.setRoot(MainPage);
     }, (err) => {
       loader.dismiss();
 

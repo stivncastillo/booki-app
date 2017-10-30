@@ -2,18 +2,12 @@
 
   <ion-navbar color="primary">
     <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="books?.length > 0">
     <ion-item-sliding class="item" *ngFor="let item of books">
       <button ion-item (click)="openItem(item)">
         <h2>{{item.name}}</h2>
@@ -29,4 +23,12 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+  <p *ngIf="books?.length < 1">
+    {{ 'BOOK_LIST_INVITATION_CREATE' | translate }}
+  </p>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addItem()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

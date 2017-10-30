@@ -3,6 +3,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Book } from '../../models/book';
+import { APIResponse } from '../../models/api-response';
 import { Items, BooksProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
@@ -25,7 +26,9 @@ export class BookListPage {
   ) {
     this.currentItems = this.items.query();
     this.booksProvider.getUserBookList().subscribe((response) => {
-      this.books = response.data;
+      let respuesta: APIResponse;
+      respuesta = <APIResponse>response;
+      this.books = respuesta.data;
     }, (err) => {
       // this.storage.remove('token');
       localStorage.removeItem('token');

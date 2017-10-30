@@ -16,7 +16,7 @@ export class BooksProvider {
   getUserBookList() {
     let request = this.api.get('user/books').share();
 
-    request.subscribe((res: any) => {
+    request.subscribe((res) => {
     }, err => {
       console.error('ERROR', err);
     });
