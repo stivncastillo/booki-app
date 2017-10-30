@@ -18,19 +18,13 @@ export class TokenInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let headers: any;
 
-        this.storage.get('token').then((condition) => {
-            if(condition){
-                this.storage.get('token').then((val) => {
-                    headers = new HttpHeaders({
-                      'Authorization': `Bearer ${val}`,
-                      'Content-Type': 'application/json',
-                      'Accept': 'application/json'
-                    });
-                });
-            }else{
-
-            }
-        });
+        if (localStorage.getItem('token')) {
+            headers = new HttpHeaders({
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            });
+        }
         const cloneReq = request.clone({headers});
 
         return next.handle(cloneReq);

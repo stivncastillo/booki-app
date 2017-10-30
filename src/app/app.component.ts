@@ -63,13 +63,11 @@ export class MyApp {
     });
     this.initTranslate();
 
-    this.storage.get('token').then((condition) => {
-      if(condition){
+      if (localStorage.getItem('token')) {
         this.rootPage = MainPage;
       }else{
         this.rootPage = FirstRunPage;
       }
-    });
   }
 
   initTranslate() {

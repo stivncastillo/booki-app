@@ -57,7 +57,9 @@ export class UserProvider {
    */
   _loggedIn(resp) {
     this._user = resp.data;
-    this.storage.set('token', resp.meta.token);
+    this.storage.set('token', resp.meta.token).then(() => {
+      console.log('User Loged');
+    });
     localStorage.setItem('token', resp.meta.token);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController, Nav } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 // import { Book } from '../../models/book';
@@ -26,7 +26,7 @@ export class BookListPage {
     this.booksProvider.getUserBookList().subscribe((resp) => {
       console.log(resp);
     }, (err) => {
-      this.storage.remove('token');
+      // this.storage.remove('token');
       localStorage.removeItem('token');
       this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
     });
