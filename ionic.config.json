@@ -1,6 +1,6 @@
 {
   "name": "BookiApp",
-  "app_id": "",
+  "app_id": "9fe8fde8",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

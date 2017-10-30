@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /**
@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://booki.dev/api';
+  url: string = 'http://booki.stivencastillo.com/api';
+  public headers: HttpHeaders;
 
-  constructor(public http: HttpClient) {
-  }
+  constructor( public http: HttpClient ) {}
 
   get(endpoint: string, params?: any, reqOpts?: any) {
     if (!reqOpts) {

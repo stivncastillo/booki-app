@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, Nav } from 'ionic-angular';
 
 import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+// import { Book } from '../../models/book';
+import { Items, BooksProvider } from '../../providers/providers';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -16,9 +18,18 @@ export class BookListPage {
   constructor(
     public navCtrl: NavController,
     public items: Items,
-    public modalCtrl: ModalController
+    public booksProvider: BooksProvider,
+    public modalCtrl: ModalController,
+    public storage: Storage
   ) {
     this.currentItems = this.items.query();
+    this.booksProvider.getUserBookList().subscribe((resp) => {
+      console.log(resp);
+    }, (err) => {
+      this.storage.remove('token');
+      localStorage.removeItem('token');
+      this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
+    });
   }
 
   /**
