@@ -52,5 +52,16 @@
 
   "WELCOME_INTRO": "Bienvenido",
 
-  "BOOK_LIST_INVITATION_CREATE": "No tienen nungún libro, quieres agregar uno?"
+  "BOOK_LIST_INVITATION_CREATE": "No tienen nungún libro, quieres agregar uno?",
+  "BOOK_LIST_TITLE": "Mis Libros",
+
+  "BOOK_CREATE_TITLE": "Crear Libro",
+
+  "BOOK_NAME_PLACEHOLDER": "Nombre",
+  "BOOK_AUTHOR_PLACEHOLDER": "Autor",
+  "BOOK_PAGES_PLACEHOLDER": "Paginas",
+  "BOOK_YEAR_PLACEHOLDER": "Año",
+  "BOOK_STARTED_PLACEHOLDER": "Empezado en",
+  "BOOK_DESCRIPTION_PLACEHOLDER": "Descripción",
+  "BOOK_EDITORIAL_PLACEHOLDER": "Editorial"
 }

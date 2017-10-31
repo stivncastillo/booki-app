@@ -24,4 +24,15 @@ export class BooksProvider {
     return request;
   }
 
+  storeBook(book: any) {
+    let seq = this.api.post('books', book).share();
+
+    seq.subscribe((res: any) => {
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
 }

@@ -68,5 +68,16 @@
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
-  "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?"
+  "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?",
+  "BOOK_LIST_TITLE": "My Books",
+
+  "BOOK_CREATE_TITLE": "Book Create",
+
+  "BOOK_NAME_PLACEHOLDER": "Name",
+  "BOOK_AUTHOR_PLACEHOLDER": "Author",
+  "BOOK_PAGES_PLACEHOLDER": "Pages",
+  "BOOK_YEAR_PLACEHOLDER": "Year",
+  "BOOK_STARTED_PLACEHOLDER": "Started In",
+  "BOOK_DESCRIPTION_PLACEHOLDER": "Description",
+  "BOOK_EDITORIAL_PLACEHOLDER": "Editorial"
 }

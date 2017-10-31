@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{ 'BOOK_CREATE_TITLE' | translate }}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+          {{ 'CANCEL_BUTTON' | translate }}
+        </span>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span color="primary" showWhen="ios">
+          {{ 'DONE_BUTTON' | translate }}
+        </span>
+        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
+    <ion-list>
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_NAME_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_AUTHOR_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="text" formControlName="author"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_PAGES_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="number" formControlName="pages"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_STARTED_PLACEHOLDER' | translate }}</ion-label>
+      	<ion-datetime displayFormat="YYYY-MM-DD" formControlName="started_in"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_YEAR_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="number" formControlName="year"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_DESCRIPTION_PLACEHOLDER' | translate }}</ion-label>
+      	<ion-input type="text" formControlName="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      	<ion-label stacked>{{ 'BOOK_EDITORIAL_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="text" formControlName="editorial"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </form>
+</ion-content>
