@@ -63,7 +63,6 @@ export class BookCreatePage {
 
 		this.book = this.form.value;
 
-
 		this.bookProvider.storeBook(this.book).subscribe((resp) => {
 			loader.dismiss();
 			this.viewCtrl.dismiss(this.form.value);
