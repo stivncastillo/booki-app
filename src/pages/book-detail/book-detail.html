@@ -1,0 +1,32 @@
+<ion-header>
+
+	<ion-navbar color="primary" no-border-bottom>
+		<button ion-button menuToggle icon-only>
+			<ion-icon name='menu'></ion-icon>
+		</button>
+
+		<ion-title>{{ 'BOOK_DETAIL_TITLE' | translate }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-card>
+		<ion-card-header>
+			<p class="name">{{ book.name }}</p>
+			<span class="author">{{ book.author }}</span>
+		</ion-card-header>
+		<ion-card-content>
+			{{ book.description }}
+		</ion-card-content>
+	</ion-card>
+
+	<ion-list>
+		<ion-item>
+			<h2>Finn</h2>
+			<h3>Don't Know What To Do!</h3>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

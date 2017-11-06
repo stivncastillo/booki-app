@@ -69,8 +69,6 @@ export class BookCreatePage {
 		}, (err) => {
 			loader.dismiss();
 		});
-
-		// this.viewCtrl.dismiss(this.form.value);
 	}
 
 }

@@ -73,6 +73,10 @@
 
   "BOOK_CREATE_TITLE": "Book Create",
 
+  "BOOK_DETAIL_TITLE": "Detail",
+  "BOOK_DETAIL_TAB_PROGRESS": "Progress",
+  "BOOK_DETAIL_TAB_DETAIL": "Detail",
+
   "BOOK_NAME_PLACEHOLDER": "Name",
   "BOOK_AUTHOR_PLACEHOLDER": "Author",
   "BOOK_PAGES_PLACEHOLDER": "Pages",

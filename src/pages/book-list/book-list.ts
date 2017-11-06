@@ -52,6 +52,15 @@ export class BookListPage {
     addModal.present();
   }
 
+  openBook(book: Book) {
+    this.navCtrl.setRoot('BookDetailPage', {
+      book: book,
+      opt: {
+        dismiss: false
+      }
+    });
+  }
+
   /**
    * Delete an item from the list of items.
    */

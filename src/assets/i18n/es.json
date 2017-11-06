@@ -55,6 +55,10 @@
   "BOOK_LIST_INVITATION_CREATE": "No tienen nungún libro, quieres agregar uno?",
   "BOOK_LIST_TITLE": "Mis Libros",
 
+  "BOOK_DETAIL_TITLE": "Detalle",
+  "BOOK_DETAIL_TAB_PROGRESS": "Progreso",
+  "BOOK_DETAIL_TAB_DETAIL": "Detalle",
+
   "BOOK_CREATE_TITLE": "Crear Libro",
 
   "BOOK_NAME_PLACEHOLDER": "Nombre",

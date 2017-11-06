@@ -1,0 +1,13 @@
+page-book-detail {
+	ion-toolbar {
+		color: color($colors, white);
+	}
+
+	.name {
+		font-size: 20px;
+	}
+
+	.author {
+    	color: color($colors, acent_color);
+	}
+}
