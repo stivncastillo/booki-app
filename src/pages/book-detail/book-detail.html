@@ -21,12 +21,20 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-list>
-		<ion-item>
+	<ion-list *ngIf="books?.length > 0">
+		<ion-item *ngFor="let story of stories">
 			<h2>Finn</h2>
 			<h3>Don't Know What To Do!</h3>
 			<p>I've had a pretty messed up day. If we just...</p>
 		</ion-item>
 	</ion-list>
+
+	<p *ngIf="books?.length < 1">
+		{{ 'BOOK_LIST_INVITATION_CREATE' | translate }}
+	</p>
+
+	<ion-fab right bottom>
+		<button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
 
 </ion-content>

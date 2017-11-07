@@ -17,6 +17,7 @@ import { MyApp } from './app.component';
 import { BooksProvider } from '../providers/books/books';
 import { TokenInterceptor } from '../providers/api/token-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoryProvider } from '../providers/story/story';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -72,6 +73,7 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     BooksProvider,
+    StoryProvider,
   ]
 })
 export class AppModule { }
