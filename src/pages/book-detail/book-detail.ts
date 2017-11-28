@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 
 import { StoryProvider } from '../../providers/providers';
@@ -21,6 +21,7 @@ export class BookDetailPage {
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public storyProvider: StoryProvider,
+		public modalCtrl: ModalController,
 		platform: Platform
 	) {
 		this.isAndroid = platform.is('android');
@@ -46,6 +47,14 @@ export class BookDetailPage {
 			// localStorage.removeItem('token');
 			// this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
 		});
+	}
+
+	addStory() {
+		let addModal = this.modalCtrl.create('StoryCreatePage');
+		addModal.onDidDismiss(book => {
+			console.log('closed');
+		})
+		addModal.present();
 	}
 
 }

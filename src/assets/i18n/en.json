@@ -71,7 +71,7 @@
   "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?",
   "BOOK_LIST_TITLE": "My Books",
 
-  "BOOK_CREATE_TITLE": "Book Create",
+  "BOOK_CREATE_TITLE": "Create Book",
 
   "BOOK_DETAIL_TITLE": "Detail",
   "BOOK_DETAIL_TAB_PROGRESS": "Progress",
@@ -83,5 +83,7 @@
   "BOOK_YEAR_PLACEHOLDER": "Year",
   "BOOK_STARTED_PLACEHOLDER": "Started In",
   "BOOK_DESCRIPTION_PLACEHOLDER": "Description",
-  "BOOK_EDITORIAL_PLACEHOLDER": "Editorial"
+  "BOOK_EDITORIAL_PLACEHOLDER": "Editorial",
+
+  "STORY_CREATE_TITLE": "Create Book Story"
 }
