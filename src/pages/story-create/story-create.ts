@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @IonicPage()
 @Component({
@@ -9,13 +11,20 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class StoryCreatePage {
 	isReadyToSave: boolean;
+	loginLoading: string;
 
 	constructor(
 		public navCtrl: NavController,
+		public navParams: NavParams,
+		formBuilder: FormBuilder,
 		public viewCtrl: ViewController,
+		public loadingCtrl: LoadingController,
 		public translateService: TranslateService,
-		public navParams: NavParams
 		) {
+
+		this.translateService.get('LOADING').subscribe((value) => {
+			this.loginLoading = value;
+		});
 	}
 
 	ionViewDidLoad() {

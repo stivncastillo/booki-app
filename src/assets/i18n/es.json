@@ -1,73 +1,89 @@
 {
-  "NAME": "Nombre",
-  "FIRST_NAME": "Nombre",
-  "LAST_NAME": "Apellido",
-  "PASSWORD": "Contraseña",
+  "BACK_BUTTON_TEXT": "Back",
+
+  "NAME": "Name",
   "EMAIL": "Email",
-  "LOGIN": "Iniciar sesión",
-  "SIGNUP": "Registrarse",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "LOGIN": "Sign in",
+  "SIGNUP": "Sign up",
 
   "TAB1_TITLE": "Items",
-  "TAB2_TITLE": "Buscar",
-  "TAB3_TITLE": "Ajustes",
+  "TAB2_TITLE": "Search",
+  "TAB3_TITLE": "Settings",
 
-  "LOADING": "Por favor espere",
+  "LOADING": "Please wait",
 
-  "MAP_TITLE": "Mapa",
+  "MAP_TITLE": "Map",
 
-  "TUTORIAL_SLIDE1_TITLE": "Bienvenido/a al Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "El <b>Ionic Super Starter</b> es un starter de Ionic completo con muchas páginas preconstruidas y mejores prácticas.",
+  "TUTORIAL_SKIP_BUTTON": "Skip",
+  "TUTORIAL_CONTINUE_BUTTON": "Continue",
 
-  "TUTORIAL_SLIDE2_TITLE": "Cómo usar el Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Monta los varios tipos de página que quieras y quita los que no. Hemos incluido muchas estructuras de página comunes en apps móviles, como páginas de inicio de sesión y registro, pestañas, y esta página de tutorial.",
+  "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Empezando",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "¿Necesitas ayuda? Échale un vistazo al README del Super Starter para ver el tutorial completo.",
+  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
 
-  "SETTINGS_TITLE": "Ajustes",
-  "SETTINGS_OPTION1": "Opción 1",
-  "SETTINGS_OPTION2": "Opción 2",
-  "SETTINGS_OPTION3": "Opción 3",
-  "SETTINGS_OPTION4": "Opción 4",
+  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
 
-  "SETTINGS_PAGE_PROFILE": "Editar Perfil",
+  "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
 
-  "WELCOME_TITLE": "Bienvenido/a",
+  "WELCOME_INTRO": "Welcome",
 
-  "LOGIN_TITLE": "Iniciar sesión",
-  "LOGIN_ERROR": "No se ha podido iniciar sesión. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
-  "LOGIN_BUTTON": "Iniciar sesión",
-  "SIGNUP_TITLE": "Registro",
-  "SIGNUP_ERROR": "No se ha podido crear la cuenta. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
-  "SIGNUP_BUTTON": "Registrarse",
+  "SETTINGS_TITLE": "Settings",
+  "SETTINGS_OPTION1": "Option 1",
+  "SETTINGS_OPTION2": "Option 2",
+  "SETTINGS_OPTION3": "Option 3",
+  "SETTINGS_OPTION4": "Option 4",
+
+  "SETTINGS_PROFILE_BUTTON": "Edit Profile",
+
+  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+
+  "WELCOME_TITLE": "Welcome",
+
+  "LOGIN_TITLE": "Sign in",
+  "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
+  "LOGIN_BUTTON": "Sign in",
+  "SIGNUP_TITLE": "Sign up",
+  "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
+  "SIGNUP_BUTTON": "Sign up",
 
   "LIST_MASTER_TITLE": "Items",
 
-  "ITEM_CREATE_TITLE": "Nuevo Item",
-  "ITEM_CREATE_CHOOSE_IMAGE": "Añadir Imagen",
+  "ITEM_CREATE_TITLE": "New Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
+
+  "ITEM_NAME_PLACEHOLDER": "Name",
+  "ITEM_ABOUT_PLACEHOLDER": "About",
+
+  "DONE_BUTTON": "Done",
+  "CANCEL_BUTTON": "Cancel",
+  "DELETE_BUTTON": "Delete",
 
   "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Buscar",
+  "SEARCH_TITLE": "Search",
+  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
-  "WELCOME_INTRO": "Bienvenido",
+  "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?",
+  "BOOK_LIST_TITLE": "My Books",
 
-  "BOOK_LIST_INVITATION_CREATE": "No tienen nungún libro, quieres agregar uno?",
-  "BOOK_LIST_TITLE": "Mis Libros",
+  "BOOK_CREATE_TITLE": "Create Book",
 
-  "BOOK_DETAIL_TITLE": "Detalle",
-  "BOOK_DETAIL_TAB_PROGRESS": "Progreso",
-  "BOOK_DETAIL_TAB_DETAIL": "Detalle",
+  "BOOK_DETAIL_TITLE": "Detail",
+  "BOOK_DETAIL_TAB_PROGRESS": "Progress",
+  "BOOK_DETAIL_TAB_DETAIL": "Detail",
 
-  "BOOK_CREATE_TITLE": "Crear Libro",
-
-  "BOOK_NAME_PLACEHOLDER": "Nombre",
-  "BOOK_AUTHOR_PLACEHOLDER": "Autor",
-  "BOOK_PAGES_PLACEHOLDER": "Paginas",
-  "BOOK_YEAR_PLACEHOLDER": "Año",
-  "BOOK_STARTED_PLACEHOLDER": "Empezado en",
-  "BOOK_DESCRIPTION_PLACEHOLDER": "Descripción",
+  "BOOK_NAME_PLACEHOLDER": "Name",
+  "BOOK_AUTHOR_PLACEHOLDER": "Author",
+  "BOOK_PAGES_PLACEHOLDER": "Pages",
+  "BOOK_YEAR_PLACEHOLDER": "Year",
+  "BOOK_STARTED_PLACEHOLDER": "Started In",
+  "BOOK_DESCRIPTION_PLACEHOLDER": "Description",
   "BOOK_EDITORIAL_PLACEHOLDER": "Editorial",
 
-  "STORY_CREATE_TITLE": "Crear Historia"
+  "STORY_CREATE_TITLE": "Create Book Story"
 }
