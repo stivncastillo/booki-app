@@ -28,8 +28,28 @@
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
     <ion-list>
       <ion-item>
-      	<ion-label stacked>{{ 'BOOK_NAME_PLACEHOLDER' | translate }}</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
+        <ion-label stacked>{{ 'STORY_DATE_PLACEHOLDER' | translate }}</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" formControlName="date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{ 'STORY_PAGE_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="number" formControlName="page"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{ 'STORY_CHAPTER_PLACEHOLDER' | translate }}</ion-label>
+        <ion-input type="number" formControlName="chapter"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{ 'STORY_SUMMARY_PLACEHOLDER' | translate }}</ion-label>
+        <ion-textarea formControlName="summary"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'STORY_ISEND_PLACEHOLDER' | translate }}</ion-label>
+        <ion-toggle checked="false" formControlName="is_end"></ion-toggle>
       </ion-item>
     </ion-list>
   </form>

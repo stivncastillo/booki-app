@@ -3,7 +3,9 @@ import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angu
 import { Platform } from 'ionic-angular';
 
 import { StoryProvider } from '../../providers/providers';
+
 import { Story } from '../../models/story';
+import { Book } from '../../models/book';
 import { APIResponse } from '../../models/api-response';
 
 @IonicPage()
@@ -12,10 +14,9 @@ import { APIResponse } from '../../models/api-response';
 	templateUrl: 'book-detail.html',
 })
 export class BookDetailPage {
-	book: any;
+	book: Book;
 	stories: Array<Story>;
 	view: string = "detail";
-	isAndroid: boolean = false;
 
 	constructor(
 		public navCtrl: NavController,
@@ -24,10 +25,10 @@ export class BookDetailPage {
 		public modalCtrl: ModalController,
 		platform: Platform
 	) {
-		this.isAndroid = platform.is('android');
 		if (!navParams.get('book')) {
-			this.navCtrl.setRoot('BookListPage');
+			this.navCtrl.push('BookListPage');
 		}
+
 		this.book = navParams.get('book');
 	}
 
@@ -50,7 +51,7 @@ export class BookDetailPage {
 	}
 
 	addStory() {
-		let addModal = this.modalCtrl.create('StoryCreatePage');
+		let addModal = this.modalCtrl.create('StoryCreatePage', {book: this.book});
 		addModal.onDidDismiss(book => {
 			console.log('closed');
 		})

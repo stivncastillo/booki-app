@@ -23,4 +23,15 @@ export class StoryProvider {
     return request;
   }
 
+  storeStory(story: any) {
+    let seq = this.api.post(`books/${story.book_id}/stories`, story).share();
+
+    seq.subscribe((res: any) => {
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
 }
