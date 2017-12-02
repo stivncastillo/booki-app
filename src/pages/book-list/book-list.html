@@ -10,6 +10,8 @@
 </ion-header>
 
 <ion-content>
+  <ion-spinner *ngIf="books?.length < 1" padding name="dots"></ion-spinner>
+
   <ion-list *ngIf="books?.length > 0">
     <ion-item-sliding class="item" *ngFor="let book of books">
       <button ion-item (click)="openBook(book)">
@@ -26,10 +28,6 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-
-  <p *ngIf="books?.length < 1">
-    {{ 'BOOK_LIST_INVITATION_CREATE' | translate }}
-  </p>
 
   <ion-fab right bottom>
     <button ion-fab color="secondary" (click)="addBook()"><ion-icon name="add"></ion-icon></button>

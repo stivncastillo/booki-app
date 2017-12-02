@@ -21,17 +21,15 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-list *ngIf="books?.length > 0">
-		<ion-item *ngFor="let story of stories">
+	<ion-list *ngIf="stories?.length > 0">
+		<button ion-item *ngFor="let story of stories">
 			<h2>Finn</h2>
 			<h3>Don't Know What To Do!</h3>
 			<p>I've had a pretty messed up day. If we just...</p>
-		</ion-item>
+		</button>
 	</ion-list>
 
-	<p *ngIf="books?.length < 1" padding>
-		{{ 'BOOK_LIST_INVITATION_CREATE' | translate }}
-	</p>
+	<ion-spinner *ngIf="stories?.length < 1 " center padding name="dots"></ion-spinner>
 
 	<ion-fab right bottom>
 		<button ion-fab color="secondary" (click)="addStory()"><ion-icon name="add"></ion-icon></button>

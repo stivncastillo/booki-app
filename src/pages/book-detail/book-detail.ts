@@ -53,7 +53,8 @@ export class BookDetailPage {
 	addStory() {
 		let addModal = this.modalCtrl.create('StoryCreatePage', {book: this.book});
 		addModal.onDidDismiss(book => {
-			console.log('closed');
+			console.log('Load list');
+			this.fillList();
 		})
 		addModal.present();
 	}

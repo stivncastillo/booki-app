@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, LoadingController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Item } from '../../models/item';
 import { Book } from '../../models/book';
@@ -16,25 +17,41 @@ export class BookListPage {
 
   currentItems: Item[];
   books: Book[];
+  loadList: string;
 
   constructor(
     public navCtrl: NavController,
     public items: Items,
+    public loadingCtrl: LoadingController,
     public booksProvider: BooksProvider,
     public modalCtrl: ModalController,
+    public translateService: TranslateService,
     public storage: Storage
   ) {
     this.currentItems = this.items.query();
+
+    this.translateService.get('LOAD_LIST').subscribe((value) => {
+      this.loadList = value;
+    });
+
     this.fillList();
   }
 
   fillList(){
     this.books = [];
 
+    const loader = this.loadingCtrl.create({
+      content: this.loadList,
+      spinner: 'dots'
+    });
+    loader.present();
+
     this.booksProvider.getUserBookList().subscribe((response) => {
       let respuesta: APIResponse;
       respuesta = <APIResponse>response;
       this.books = respuesta.data;
+
+      loader.dismiss();
     }, (err) => {
       // this.storage.remove('token');
       localStorage.removeItem('token');
