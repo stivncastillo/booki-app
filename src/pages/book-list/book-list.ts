@@ -40,18 +40,10 @@ export class BookListPage {
   fillList(){
     this.books = [];
 
-    const loader = this.loadingCtrl.create({
-      content: this.loadList,
-      spinner: 'dots'
-    });
-    loader.present();
-
     this.booksProvider.getUserBookList().subscribe((response) => {
       let respuesta: APIResponse;
       respuesta = <APIResponse>response;
       this.books = respuesta.data;
-
-      loader.dismiss();
     }, (err) => {
       // this.storage.remove('token');
       localStorage.removeItem('token');

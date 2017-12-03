@@ -34,10 +34,10 @@ export class BookDetailPage {
 
 	ionViewDidLoad() {
 		// console.log(this.book);
-		this.fillList();
+		this.fillStoriesList();
 	}
 
-	fillList() {
+	fillStoriesList() {
 		this.stories = [];
 		this.storyProvider.getStoriesBookList(this.book.id).subscribe((response) => {
 			let _response: APIResponse;
@@ -53,8 +53,7 @@ export class BookDetailPage {
 	addStory() {
 		let addModal = this.modalCtrl.create('StoryCreatePage', {book: this.book});
 		addModal.onDidDismiss(book => {
-			console.log('Load list');
-			this.fillList();
+			this.fillStoriesList();
 		})
 		addModal.present();
 	}

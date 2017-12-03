@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-spinner *ngIf="books?.length < 1" padding name="dots"></ion-spinner>
+  <ion-spinner class="loader" *ngIf="books?.length < 1" padding name="dots"></ion-spinner>
 
   <ion-list *ngIf="books?.length > 0">
     <ion-item-sliding class="item" *ngFor="let book of books">
