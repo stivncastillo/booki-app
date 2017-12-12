@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{ 'PROFILE_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="update()" autocomplete="off">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>{{ 'FIRST_NAME' | translate }}</ion-label>
+        <ion-input type="text" formControlName="first_name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{ 'LAST_NAME' | translate }}</ion-label>
+        <ion-input type="text" formControlName="last_name" autocomplete="off"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" formControlName="password" autocomplete="off"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
+    </div>
+  </form>
+</ion-content>

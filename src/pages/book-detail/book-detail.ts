@@ -45,8 +45,6 @@ export class BookDetailPage {
 			this.stories = _response.data;
 		}, (err) => {
 			// this.storage.remove('token');
-			// localStorage.removeItem('token');
-			// this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
 		});
 	}
 

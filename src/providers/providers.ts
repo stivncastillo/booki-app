@@ -4,6 +4,7 @@ import { Settings } from './settings/settings';
 import { UserProvider } from './user/user-provider';
 import { BooksProvider } from './books/books';
 import { StoryProvider } from './story/story';
+import { ProfileProvider } from './profile/profile';
 
 export {
     Api,
@@ -11,5 +12,6 @@ export {
     Settings,
     UserProvider,
     BooksProvider,
-    StoryProvider
+    StoryProvider,
+    ProfileProvider
 };

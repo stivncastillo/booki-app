@@ -2,11 +2,15 @@
   "BACK_BUTTON_TEXT": "Back",
 
   "NAME": "Name",
+  "FIRST_NAME": "Name",
+  "LAST_NAME": "Last Name",
   "EMAIL": "Email",
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "LOGIN": "Sign in",
   "SIGNUP": "Sign up",
+
+  "UPDATE_BUTTON": "Update",
 
   "TAB1_TITLE": "Items",
   "TAB2_TITLE": "Search",
@@ -91,5 +95,7 @@
   "STORY_PAGE_PLACEHOLDER": "Page Number",
   "STORY_CHAPTER_PLACEHOLDER": "Chapter",
   "STORY_ISEND_PLACEHOLDER": "Finish",
-  "STORY_SUMMARY_PLACEHOLDER": "Summary"
+  "STORY_SUMMARY_PLACEHOLDER": "Summary",
+
+  "PROFILE_TITLE": "Profile"
 }
