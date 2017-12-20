@@ -15,6 +15,7 @@ import { UserProvider } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { BooksProvider } from '../providers/books/books';
+import { ProfileProvider } from '../providers/profile/profile';
 import { TokenInterceptor } from '../providers/api/token-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoryProvider } from '../providers/story/story';
@@ -74,6 +75,7 @@ export function provideSettings(storage: Storage) {
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     BooksProvider,
     StoryProvider,
+    ProfileProvider,
   ]
 })
 export class AppModule { }

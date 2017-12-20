@@ -27,6 +27,7 @@ export class ProfilePage {
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       password: [''],
+      confirm_password: [''],
     });
   }
 
@@ -35,6 +36,13 @@ export class ProfilePage {
       let _response: APIResponse;
       _response = <APIResponse>response;
       this.user = _response.data;
+
+      this.form.setValue({
+        last_name: this.user.last_name,
+        first_name: this.user.first_name,
+        password: '',
+        confirm_password: '',
+      });
     }, (err) => {
       // this.storage.remove('token');
     });

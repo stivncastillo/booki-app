@@ -8,9 +8,7 @@ import { Api } from '../api/api';
 @Injectable()
 export class ProfileProvider {
 
-    constructor(public api: Api) {
-        // console.log('Hello ProfileProvider Provider');
-    }
+    constructor(public api: Api) {}
 
     getProfile() {
         let request = this.api.get('user/profile').share();
