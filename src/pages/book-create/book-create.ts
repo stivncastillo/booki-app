@@ -54,8 +54,6 @@ export class BookCreatePage {
 
 	done() {
 
-		console.log('guardando');
-
 		if (!this.form.valid) { return; }
 		let loader = this.loadingCtrl.create({
 			content: this.loginLoading,

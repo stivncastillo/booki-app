@@ -21,8 +21,8 @@ export class ProfileProvider {
         return request;
     }
 
-    storeStory(story: any) {
-        let seq = this.api.post(`books/${story.book_id}/stories`, story).share();
+    patchProfile(user: any) {
+        let seq = this.api.patch('user/profile', user).share();
 
         seq.subscribe((res: any) => {
         }, err => {
