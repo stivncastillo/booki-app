@@ -16,6 +16,7 @@ import { APIResponse } from '../../models/api-response';
 export class BookDetailPage {
 	book: Book;
 	stories: Array<Story>;
+	lastStory: Story;
 	view: string = "detail";
 
 	constructor(
@@ -43,6 +44,7 @@ export class BookDetailPage {
 			let _response: APIResponse;
 			_response = <APIResponse>response;
 			this.stories = _response.data;
+			this.lastStory = this.stories.shift();
 		}, (err) => {
 			// this.storage.remove('token');
 		});

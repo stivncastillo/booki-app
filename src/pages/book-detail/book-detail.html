@@ -11,13 +11,13 @@
 
 
 <ion-content>
-	<ion-card>
+	<ion-card *ngIf="lastStory">
 		<ion-card-header>
-			<p class="name">{{ book.name }}</p>
-			<span class="author">{{ book.author }}</span>
+			<p class="name">Chapter: {{ lastStory.chapter }} Page: {{ lastStory.page }}</p>
+			<span class="author">{{ lastStory.date }}</span>
 		</ion-card-header>
 		<ion-card-content>
-			{{ book.description }}
+			{{ lastStory.summary }}
 		</ion-card-content>
 	</ion-card>
 
