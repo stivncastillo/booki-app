@@ -62,12 +62,18 @@ export class BookListPage {
   }
 
   openBook(book: Book) {
-    this.navCtrl.setRoot('BookDetailPage', {
+    this.navCtrl.push('BookDetailPage', {
       book: book,
       opt: {
         dismiss: false
       }
     });
+    // this.navCtrl.setRoot('BookDetailPage', {
+    //   book: book,
+    //   opt: {
+    //     dismiss: false
+    //   }
+    // });
   }
 
   /**

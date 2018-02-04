@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import moment from 'moment';
 
 import { StoryProvider } from '../../providers/providers';
 
@@ -35,12 +36,13 @@ export class StoryCreatePage {
 		this.book = navParams.get('book');
 
 		this.form = formBuilder.group({
-			date: ['', Validators.required],
+			date: [moment().toISOString(), Validators.required],
 			page: ['', Validators.required],
 			chapter: [''],
 			is_end: [false],
 			summary: ['']
 		});
+
 
 		// Watch the form for changes, and
 		this.form.valueChanges.subscribe((v) => {
@@ -70,6 +72,7 @@ export class StoryCreatePage {
 
 		this.story = this.form.value;
 		this.story.book_id = this.book.id;
+		this.story.date = moment(this.story.date).format('YYYY-MM-DD HH:mm:ss');
 
 		this.storyProvider.storeStory(this.story).subscribe((resp) => {
 			loader.dismiss();
