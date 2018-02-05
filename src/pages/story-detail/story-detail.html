@@ -9,6 +9,14 @@
 	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Hola</h2>
+<ion-content>
+	<ion-card *ngIf="story">
+			<ion-card-header>
+				<p class="name">Chapter: {{ story.chapter }} Page: {{ story.page }}</p>
+				<span class="author">{{ story.date }}</span>
+			</ion-card-header>
+			<ion-card-content>
+				{{ story.summary }}
+			</ion-card-content>
+		</ion-card>
 </ion-content>
