@@ -22,7 +22,7 @@
 	</ion-card>
 
 	<ion-list *ngIf="stories?.length > 0">
-		<button ion-item *ngFor="let story of stories">
+		<button ion-item *ngFor="let story of stories" (click)="openStory(story)">
 			<h2>Chapter: {{ story.chapter }} Page: {{ story.page }}</h2>
 			<h3>{{ story.date }}</h3>
 			<p>{{ story.summary }}</p>

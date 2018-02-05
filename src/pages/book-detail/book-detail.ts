@@ -58,4 +58,15 @@ export class BookDetailPage {
 		addModal.present();
 	}
 
+	openStory(story: Story) {
+
+		this.navCtrl.push('StoryDetailPage', {
+			story: story,
+			opt: {
+				dismiss: false
+			}
+		});
+
+	}
+
 }

@@ -68,12 +68,6 @@ export class BookListPage {
         dismiss: false
       }
     });
-    // this.navCtrl.setRoot('BookDetailPage', {
-    //   book: book,
-    //   opt: {
-    //     dismiss: false
-    //   }
-    // });
   }
 
   /**
