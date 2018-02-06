@@ -13,8 +13,10 @@ export class BooksProvider {
   /**
    * Send GET request to get book list of user
    */
-  getUserBookList() {
-    let request = this.api.get('user/books').share();
+  getUserBookList(page) {
+    let request = this.api.get('user/books', {
+      page: page
+    }).share();
 
     request.subscribe((res) => {
     }, err => {

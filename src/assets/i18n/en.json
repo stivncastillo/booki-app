@@ -76,6 +76,7 @@
 
   "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?",
   "BOOK_LIST_TITLE": "My Books",
+  "BOOK_LIST_LOAD_BOOKS": "Fetch Books",
 
   "BOOK_CREATE_TITLE": "Create Book",
 

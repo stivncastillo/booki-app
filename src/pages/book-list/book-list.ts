@@ -18,6 +18,9 @@ export class BookListPage {
   currentItems: Item[];
   books: Book[];
   loadList: string;
+  page = 1;
+  lastPage = 0;
+  loadScroll = true;
 
   constructor(
     public navCtrl: NavController,
@@ -34,23 +37,42 @@ export class BookListPage {
       this.loadList = value;
     });
 
+    this.books = [];
     this.fillList();
   }
 
   fillList(){
-    this.books = [];
+    return new Promise(resolve => {
+      this.booksProvider.getUserBookList(this.page).subscribe((response) => {
+        let respuesta: APIResponse;
+        respuesta = <APIResponse>response;
 
-    this.booksProvider.getUserBookList().subscribe((response) => {
-      let respuesta: APIResponse;
-      respuesta = <APIResponse>response;
-      this.books = respuesta.data;
-    }, (err) => {
-      // this.storage.remove('token');
-      localStorage.removeItem('token');
-      this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
+        this.lastPage = respuesta.meta.last_page;
+
+        if (this.lastPage > 1) {
+          if (this.lastPage === this.page) {
+            this.loadScroll = false;
+          }
+          this.page = this.page + 1;
+        }
+
+        respuesta.data.forEach((value, index) => {
+          this.books.push(value);
+        });
+
+        resolve(true);
+      }, (err) => {
+        resolve(false);
+        // this.storage.remove('token');
+        localStorage.removeItem('token');
+        this.navCtrl.setRoot('LoginPage', {opt:{dismiss:false}});
+      });
     });
   }
 
+  /**
+   * Open form
+   */
   addBook(){
     let addModal = this.modalCtrl.create('BookCreatePage');
     addModal.onDidDismiss(book => {
@@ -61,6 +83,9 @@ export class BookListPage {
     addModal.present();
   }
 
+  /**
+   * Open book in a new modal
+   */
   openBook(book: Book) {
     this.navCtrl.push('BookDetailPage', {
       book: book,
@@ -83,6 +108,16 @@ export class BookListPage {
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
       item: item
+    });
+  }
+
+  /**
+   * Infinite Scroll
+   */
+  doInfinite(infiniteScroll) {
+    this.fillList().then(() => {
+      infiniteScroll.complete();
+      infiniteScroll.enable(this.loadScroll);
     });
   }
 
