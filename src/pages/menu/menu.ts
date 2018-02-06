@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, Nav, NavController } from 'ionic-angular';
+import { UserProvider } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,10 @@ export class MenuPage {
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public userProvider: UserProvider
+  ) {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Sign in', component: 'LoginPage' },
@@ -27,8 +31,16 @@ export class MenuPage {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    console.log(page);
+
+    if (page === "Logout") {
+      this.userProvider.logout().then(() => {
+        this.nav.setRoot("WelcomePage");
+      });
+    }else{
+      // Reset the content nav to have just this page
+      // we wouldn't want the back button to show in this scenario
+      this.nav.setRoot(page.component);
+    }
   }
 }

@@ -50,6 +50,9 @@ export class UserProvider {
    */
   logout() {
     this._user = null;
+    return this.storage.clear().then(() => {
+      console.log('User logout, Bye');
+    });
   }
 
   /**

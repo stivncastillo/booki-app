@@ -6,6 +6,7 @@ import { Config, Nav, Platform } from 'ionic-angular';
 
 import { FirstRunPage, MainPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
+import { UserProvider } from '../providers/providers';
 
 @Component({
   templateUrl: '../pages/menu/menu.html'
@@ -18,7 +19,7 @@ export class MyApp {
   pages: any[] = [
     { title: 'My Books', component: 'BookListPage' },
     { title: 'Profile', component: 'ProfilePage' },
-    { title: 'Logout', component: 'ProfilePage' },
+    { title: 'Logout', component: 'Logout' },
   ]
 
   constructor(
@@ -27,7 +28,8 @@ export class MyApp {
     settings: Settings,
     private config: Config,
     private statusBar: StatusBar,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    public userProvider: UserProvider
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -60,8 +62,16 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    console.log(page.component);
+
+    if (page.component === "Logout") {
+      this.userProvider.logout().then(() => {
+        this.nav.setRoot("WelcomePage");
+      });
+    }else{
+      // Reset the content nav to have just this page
+      // we wouldn't want the back button to show in this scenario
+      this.nav.setRoot(page.component);
+    }
   }
 }
