@@ -99,6 +99,7 @@
   "STORY_ISEND_PLACEHOLDER": "Finish",
   "STORY_SUMMARY_PLACEHOLDER": "Summary",
   "STORY_DETAIL_TITLE": "Story Detail",
+  "STORY_LIST_LOAD_STORIES": "Fetch Stories",
 
   "PROFILE_TITLE": "Profile"
 }

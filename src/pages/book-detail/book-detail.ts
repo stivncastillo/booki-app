@@ -18,6 +18,9 @@ export class BookDetailPage {
 	stories: Array<Story>;
 	lastStory: Story;
 	view: string = "detail";
+	page = 1;
+	lastPage = 0;
+	loadScroll = true;
 
 	constructor(
 		public navCtrl: NavController,
@@ -35,18 +38,37 @@ export class BookDetailPage {
 
 	ionViewDidLoad() {
 		// console.log(this.book);
+		this.stories = [];
 		this.fillStoriesList();
 	}
 
 	fillStoriesList() {
-		this.stories = [];
-		this.storyProvider.getStoriesBookList(this.book.id).subscribe((response) => {
-			let _response: APIResponse;
-			_response = <APIResponse>response;
-			this.stories = _response.data;
-			this.lastStory = this.stories.shift();
-		}, (err) => {
-			// this.storage.remove('token');
+		return new Promise(resolve => {
+			this.storyProvider.getStoriesBookList(this.book.id).subscribe((response) => {
+				let _response: APIResponse;
+				_response = <APIResponse>response;
+
+				this.lastPage = _response.meta.last_page;
+
+				if (this.lastPage > 1) {
+					if (this.lastPage === this.page) {
+						this.loadScroll = false;
+					}
+					this.page = this.page + 1;
+				}
+
+				_response.data.forEach((value, index) => {
+					this.stories.push(value);
+				});
+
+				this.lastStory = this.stories.shift();
+
+				resolve(true);
+
+			}, (err) => {
+				resolve(false);
+				// this.storage.remove('token');
+			});
 		});
 	}
 
@@ -67,6 +89,16 @@ export class BookDetailPage {
 			}
 		});
 
+	}
+
+	/**
+	* Infinite Scroll
+	*/
+	doInfinite(infiniteScroll) {
+		this.fillStoriesList().then(() => {
+			infiniteScroll.complete();
+			infiniteScroll.enable(this.loadScroll);
+		});
 	}
 
 }

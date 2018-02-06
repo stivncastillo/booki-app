@@ -11,6 +11,8 @@
 
 
 <ion-content>
+	<ion-spinner class="loader" *ngIf="stories?.length < 1" padding name="dots"></ion-spinner>
+
 	<ion-card *ngIf="lastStory">
 		<ion-card-header>
 			<p class="name">Chapter: {{ lastStory.chapter }} Page: {{ lastStory.page }}</p>
@@ -29,7 +31,9 @@
 		</button>
 	</ion-list>
 
-	<ion-spinner class="loader" *ngIf="stories?.length < 1" padding name="dots"></ion-spinner>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content loadingSpinner="dots" loadingText="{{ 'BOOK_LIST_LOAD_BOOKS' | translate }}"></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 
 	<ion-fab right bottom>
 		<button ion-fab color="secondary" (click)="addStory()"><ion-icon name="add"></ion-icon></button>
