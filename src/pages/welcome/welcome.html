@@ -6,8 +6,23 @@
       {{ 'WELCOME_INTRO' | translate }}
     </div>
   </div>
-  <div padding>
-    <button ion-button block (click)="signup()" medium>{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block color="light" (click)="login()" class="login" medium>{{ 'LOGIN' | translate }}</button>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <button ion-button block (click)="signup()" medium>{{ 'SIGNUP' | translate }}</button>
+        </ion-col>
+        <ion-col>
+            <button ion-button block color="light" (click)="login()" class="login" medium>{{ 'LOGIN' | translate }}</button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <button ion-button block color="facebook" (click)="loginFacebook()" class="facebook" medium>{{ 'LOGIN_FACEBOOK' | translate }}</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

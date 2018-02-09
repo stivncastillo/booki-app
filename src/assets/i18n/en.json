@@ -8,8 +8,9 @@
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "CONFIRM_PASSWORD": "Confirm Password",
-  "LOGIN": "Sign in",
-  "SIGNUP": "Sign up",
+  "LOGIN": "Login",
+  "LOGIN_FACEBOOK": "Loogin with Facebook",
+  "SIGNUP": "Register",
 
   "UPDATE_BUTTON": "Update",
 
@@ -36,7 +37,7 @@
 
   "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
 
-  "WELCOME_INTRO": "Welcome bitch",
+  "WELCOME_INTRO": "Welcome",
 
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",

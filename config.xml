@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.stivencastillo.booki" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Booki</name>
     <description>An awesome App for readers books.</description>
     <author email="stivencastillo.90@gmail.com" href="http://www.stivencastillo.com/">Stiven Castillo</author>
-    <content original-src="index.html" src="http://192.168.1.52:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -84,5 +84,9 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <allow-navigation href="http://192.168.1.52:8100" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="1556669854411750" />
+        <variable name="APP_NAME" value="Booki" />
+    </plugin>
     <engine name="android" spec="~6.3.0" />
 </widget>
