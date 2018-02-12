@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, ToastController } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { TranslateService } from '@ngx-translate/core';
 
 import { UserProvider } from '../../providers/providers';
+import { User } from '../../models/user';
+import { MainPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -11,11 +14,27 @@ import { UserProvider } from '../../providers/providers';
 })
 export class WelcomePage {
 
+  private signupErrorString: string;
+  private loginLoading: string;
+  user: User;
+  loader: any;
+
   constructor(
     public navCtrl: NavController,
     private facebook: Facebook,
-    public userProvider: UserProvider
-  ) { }
+    public translateService: TranslateService,
+    public userProvider: UserProvider,
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController
+  ) {
+    this.translateService.get('LOADING').subscribe((value) => {
+      this.loginLoading = value;
+    });
+
+    this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
+      this.signupErrorString = value;
+    });
+  }
 
   login() {
     this.navCtrl.push('LoginPage');
@@ -26,25 +45,51 @@ export class WelcomePage {
   }
 
   loginFacebook(){
+    this.loader = this.loadingCtrl.create({
+      content: this.loginLoading,
+      spinner: 'dots'
+    });
+    this.loader.present();
+
     this.facebook.login(['public_profile', 'email'])
       .then(rta => {
-        console.log(rta.status);
+        this.loader.dismiss();
         if(rta.status == 'connected'){
           this.getInfo();
         };
       })
-      .catch(error =>{
+      .catch(error => {
         console.error( error );
       });
   }
 
   getInfo(){
-    this.facebook.api('/me?fields=id,name,email,first_name,picture,last_name,gender',['public_profile','email'])
-    .then(data=>{
-      console.log(data);
+    this.facebook.api('/me?fields=id,name,email,first_name,last_name',['public_profile','email'])
+    .then(data => {
+      this.user = {
+        email: data.email,
+        first_name: data.first_name,
+        last_name: data.last_name,
+        password: data.id,
+        confirm_password: data.id
+      };
+
+      this.userProvider.signup(this.user).subscribe((resp) => {
+        this.loader.dismiss();
+        this.navCtrl.push(MainPage);
+      }, (err) => {
+        this.loader.dismiss();
+        // Unable to sign up
+        let toast = this.toastCtrl.create({
+          message: this.signupErrorString,
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+      });
     })
-    .catch(error =>{
-      console.error( error );
+    .catch(error => {
+      console.error( JSON.stringify(error) );
     });
   }
 }

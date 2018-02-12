@@ -1,6 +1,5 @@
 import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';
-import { Facebook } from '@ionic-native/facebook';
 
 import { Injectable } from '@angular/core';
 
@@ -12,8 +11,7 @@ export class UserProvider {
 
   constructor(
     public api: Api,
-    public storage: Storage,
-    private facebook: Facebook
+    public storage: Storage
   ) { }
 
   /**
@@ -67,12 +65,5 @@ export class UserProvider {
       console.log('User Loged');
     });
     localStorage.setItem('token', resp.meta.token);
-  }
-
-  loginFacebook() {
-    return this.facebook.login(['public_profile', 'email'])
-      .catch(error =>{
-        console.error( error );
-      });
   }
 }
