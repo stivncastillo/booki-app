@@ -10,9 +10,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-spinner class="loader" *ngIf="books?.length < 1" padding name="dots"></ion-spinner>
+  <ng-template #newBook>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          {{ 'BOOK_LIST_EMPTY_TITLE' | translate }}
+        </ion-card-title>
+        <p>{{ 'BOOK_LIST_EMPTY_CONTENT' | translate }}</p>
+      </ion-card-content>
 
-  <ion-list *ngIf="books?.length > 0">
+      <ion-row no-padding>
+        <ion-col text-right>
+          <button ion-button clear color="primary" (click)="addBook()" icon-start>
+            <ion-icon name='add'></ion-icon>
+            {{ 'BOOK_CREATE_TITLE' | translate }}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-template>
+
+  <ion-spinner class="loader" *ngIf="loading" padding name="dots"></ion-spinner>
+
+  <ion-list *ngIf="books?.length > 0; else newBook">
     <ion-item-sliding class="item" *ngFor="let book of books">
       <button ion-item (click)="openBook(book)">
         <h2>{{book.name}}</h2>
@@ -34,6 +54,6 @@
   </ion-infinite-scroll>
 
   <ion-fab right bottom>
-    <button ion-fab color="secondary" (click)="addBook()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="dark_primary_color" (click)="addBook()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

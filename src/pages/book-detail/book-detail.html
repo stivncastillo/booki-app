@@ -9,11 +9,9 @@
 	</ion-navbar>
 </ion-header>
 
-
 <ion-content>
-	<ion-spinner class="loader" *ngIf="stories?.length < 1" padding name="dots"></ion-spinner>
 
-	<ion-card *ngIf="lastStory">
+	<ion-card *ngIf="lastStory; else newStory">
 		<ion-card-header>
 			<p class="name">Chapter: {{ lastStory.chapter }} Page: {{ lastStory.page }}</p>
 			<span class="author">{{ lastStory.date }}</span>
@@ -22,6 +20,25 @@
 			{{ lastStory.summary }}
 		</ion-card-content>
 	</ion-card>
+
+	<ng-template #newStory>
+		<ion-card>
+				<ion-card-content>
+					<p>{{ 'BOOK_DETAIL_EMPTY_CONTENT' | translate }}</p>
+				</ion-card-content>
+
+				<ion-row no-padding>
+					<ion-col text-right>
+						<button ion-button clear color="primary" (click)="addStory()" icon-start>
+							<ion-icon name='add'></ion-icon>
+							{{ 'STORY_CREATE_TITLE' | translate }}
+						</button>
+					</ion-col>
+				</ion-row>
+			</ion-card>
+	</ng-template>
+
+	<ion-spinner class="loader" *ngIf="loading" padding name="dots"></ion-spinner>
 
 	<ion-list *ngIf="stories?.length > 0">
 		<button ion-item *ngFor="let story of stories" (click)="openStory(story)">

@@ -17,6 +17,7 @@ export class BookListPage {
 
   currentItems: Item[];
   books: Book[];
+  loading: boolean = true;
   loadList: string;
   page = 1;
   lastPage = 0;
@@ -60,8 +61,10 @@ export class BookListPage {
           this.books.push(value);
         });
 
+        this.loading = false;
         resolve(true);
       }, (err) => {
+        this.loading = false;
         resolve(false);
         // this.storage.remove('token');
         localStorage.removeItem('token');

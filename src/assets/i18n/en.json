@@ -78,12 +78,15 @@
   "BOOK_LIST_INVITATION_CREATE": "You don't have any books, Do you want to create it?",
   "BOOK_LIST_TITLE": "My Books",
   "BOOK_LIST_LOAD_BOOKS": "Fetch Books",
+  "BOOK_LIST_EMPTY_TITLE": "You don't have books yet",
+  "BOOK_LIST_EMPTY_CONTENT": "Let's create a new book and start reading!",
 
   "BOOK_CREATE_TITLE": "Create Book",
 
   "BOOK_DETAIL_TITLE": "Detail",
   "BOOK_DETAIL_TAB_PROGRESS": "Progress",
   "BOOK_DETAIL_TAB_DETAIL": "Detail",
+  "BOOK_DETAIL_EMPTY_CONTENT": "Start recording your first reading session",
 
   "BOOK_NAME_PLACEHOLDER": "Name",
   "BOOK_AUTHOR_PLACEHOLDER": "Author",

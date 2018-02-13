@@ -17,6 +17,7 @@ export class BookDetailPage {
 	book: Book;
 	stories: Array<Story>;
 	lastStory: Story;
+	loading: boolean = true;
 	view: string = "detail";
 	page = 1;
 	lastPage = 0;
@@ -37,7 +38,6 @@ export class BookDetailPage {
 	}
 
 	ionViewDidLoad() {
-		// console.log(this.book);
 		this.stories = [];
 		this.fillStoriesList();
 	}
@@ -63,9 +63,10 @@ export class BookDetailPage {
 
 				this.lastStory = this.stories.shift();
 
+				this.loading = false;
 				resolve(true);
-
 			}, (err) => {
+				this.loading = false;
 				resolve(false);
 				// this.storage.remove('token');
 			});
@@ -99,6 +100,10 @@ export class BookDetailPage {
 			infiniteScroll.complete();
 			infiniteScroll.enable(this.loadScroll);
 		});
+	}
+
+	canShowCard() {
+		return false;
 	}
 
 }
