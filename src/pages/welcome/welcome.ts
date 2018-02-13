@@ -45,15 +45,8 @@ export class WelcomePage {
   }
 
   loginFacebook(){
-    this.loader = this.loadingCtrl.create({
-      content: this.loginLoading,
-      spinner: 'dots'
-    });
-    this.loader.present();
-
     this.facebook.login(['public_profile', 'email'])
       .then(rta => {
-        this.loader.dismiss();
         if(rta.status == 'connected'){
           this.getInfo();
         };
@@ -70,15 +63,12 @@ export class WelcomePage {
         email: data.email,
         first_name: data.first_name,
         last_name: data.last_name,
-        password: data.id,
-        confirm_password: data.id
+        password: data.id
       };
 
-      this.userProvider.signup(this.user).subscribe((resp) => {
-        this.loader.dismiss();
+      this.userProvider.loginSocial(this.user).subscribe((resp) => {
         this.navCtrl.push(MainPage);
       }, (err) => {
-        this.loader.dismiss();
         // Unable to sign up
         let toast = this.toastCtrl.create({
           message: this.signupErrorString,

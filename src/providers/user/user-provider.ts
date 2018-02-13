@@ -31,6 +31,21 @@ export class UserProvider {
   }
 
   /**
+   * Send a POST request to our facebook information
+   */
+  loginSocial(accountInfo: any) {
+    let seq = this.api.post('login/facebook', accountInfo).share();
+
+    seq.subscribe((res: any) => {
+      this._loggedIn(res);
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
+  /**
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
