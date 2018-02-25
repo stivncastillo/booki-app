@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 /**
@@ -13,13 +13,25 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 })
 export class ProgressBarComponent {
 
-  text: string;
+  clases: Array<string>;
   @Input('progress') progress : string = "0";
 
   constructor(
     private _sanitizer: DomSanitizer
   ) {
-    console.log('Hello ProgressBarComponent Component');
+    this.clases = [ "progress-wrap", "progress" ];
+
+    // console.log(parseInt(this.progress), this.progress);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (parseInt(changes.progress.currentValue) <= 40) {
+      this.clases.push('red');
+    } else if(parseInt(changes.progress.currentValue) > 40 && parseInt(changes.progress.currentValue) <= 70){
+      this.clases.push('yellow');
+    } else {
+      this.clases.push('green');
+    }
   }
 
   getProgressPercent() {

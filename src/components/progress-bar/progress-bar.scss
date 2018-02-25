@@ -11,4 +11,13 @@ progress-bar {
         left: 0;
         z-index: 1;
     }
+    .green {
+        background: rgba(76, 175, 80, 0.1);
+    }
+    .yellow {
+        background: rgba(255, 235, 59, 0.1);
+    }
+    .red {
+        background: rgba(244, 67, 54, 0.1);
+    }
 }
