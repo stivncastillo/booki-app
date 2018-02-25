@@ -3,7 +3,7 @@
     <name>Booki</name>
     <description>An awesome App for readers books.</description>
     <author email="stivencastillo.90@gmail.com" href="http://www.stivencastillo.com/">Stiven Castillo</author>
-    <content original-src="index.html" src="http://192.168.1.56:8100" />
+    <content original-src="index.html" src="http://192.168.1.53:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -89,5 +89,7 @@
         <variable name="APP_NAME" value="Booki" />
     </plugin>
     <allow-navigation href="http://192.168.1.56:8100" />
+    <allow-navigation href="http://192.168.1.54:8100" />
+    <allow-navigation href="http://192.168.1.53:8100" />
     <engine name="android" spec="~6.3.0" />
 </widget>

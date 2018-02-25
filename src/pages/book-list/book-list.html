@@ -34,10 +34,13 @@
 
   <ion-list *ngIf="books?.length > 0; else newBook">
     <ion-item-sliding class="item" *ngFor="let book of books">
-      <button ion-item (click)="openBook(book)">
+      <button class="book" ion-item (click)="openBook(book)">
         <h2>{{book.name}}</h2>
         <p>{{book.author}}</p>
         <p>{{book.year}}</p>
+
+        <progress-bar [progress]="30"></progress-bar>
+
         <ion-note item-end *ngIf="book.note">{{book.note}}</ion-note>
       </button>
 

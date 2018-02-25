@@ -123,5 +123,4 @@ export class BookListPage {
       infiniteScroll.enable(this.loadScroll);
     });
   }
-
 }

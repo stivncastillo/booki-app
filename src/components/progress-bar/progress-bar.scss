@@ -1,0 +1,14 @@
+progress-bar {
+    .progress {
+        width: 0%;
+        height: 100%;
+    }
+    .progress-wrap {
+        background: rgba(76, 175, 80, 0.1);
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}
